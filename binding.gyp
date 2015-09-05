@@ -5,7 +5,14 @@
       'sources': [
         'src/gpiobcm2835nodejs.cc',
       ],
-      "cflags" : [ "-lrt -lbcm2835" ]
+      "cflags" : [ "-lrt -lbcm2835" ],
+      'conditions': [
+                ['OS=="linux"', {
+                  'cflags!': [
+                    '-lrt -lbcm2835',
+                  ],
+                }],
+              ],
     }
   ]
 }
