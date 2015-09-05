@@ -1,4 +1,7 @@
 #include <node.h>
+#include <bcm2835.h>
+
+#define PIN RPI_V2_GPIO_P1_03
 
 using namespace v8;
 
