@@ -9,14 +9,14 @@ void Method(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = Isolate::GetCurrent();
   HandleScope scope(isolate);
   int result = 0;
-  if (!bcm2835_init())         // Инициализация GPIO
-         result = 1;                //Завершение программы, если инициализация не удалась
+  if (!bcm2835_init())
+         result = 1;
   else{
     bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
 
-    bcm2835_gpio_write(PIN, LOW);   // Устанавливаем порт в 0, светодиод горит
-    bcm2835_delay(5000);             // Ждём 500 милисекунд
-    bcm2835_gpio_write(PIN, HIGH);  // Устанавливаем порт в 1, светодиод не горит
+    bcm2835_gpio_write(PIN, LOW);
+    bcm2835_delay(5000);
+    bcm2835_gpio_write(PIN, HIGH);
 
     result = cm2835_close();
   }
