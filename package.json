@@ -1,0 +1,29 @@
+{
+  "name": "gpiobcm2835nodejs",
+  "version": "0.0.1",
+  "author": "Andrey Maznyak <andreymaznyak@gmail.com>",
+  "description": "Gpio bcm2835 bindings for Node.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreymaznyak/gpiobcm2835nodejs.git"
+  },
+  "homepage": "http://github.com/andreymaznyak/gpiobcm2835nodejs",
+  "main": "./lib/gpiobcm2835nodejs.cc",
+  "keywords": [
+    "nodejs",
+    "gpio",
+    "bc2835",
+    "nodejs extansion"
+  ],
+  "engines": {
+    "node": ">=0.6.14"
+  },
+  "dependencies": {
+    "bcm2835": "http://www.airspayce.com/mikem/bcm2835/bcm2835-1.45.tar.gz"
+  },
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
