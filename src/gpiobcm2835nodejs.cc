@@ -21,7 +21,7 @@ void Method(const FunctionCallbackInfo<Value>& args) {
     result = bcm2835_close();
   }
 
-  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world" + result));
 }
 
 void init(Handle<Object> exports) {
