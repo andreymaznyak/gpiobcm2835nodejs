@@ -15,7 +15,9 @@ void Method(const FunctionCallbackInfo<Value>& args) {
     bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
 
     bcm2835_gpio_write(PIN, LOW);
+
     bcm2835_delay(5000);
+
     bcm2835_gpio_write(PIN, HIGH);
 
     result = bcm2835_close();
