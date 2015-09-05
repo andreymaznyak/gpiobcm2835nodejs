@@ -18,7 +18,7 @@ void Method(const FunctionCallbackInfo<Value>& args) {
     bcm2835_delay(5000);
     bcm2835_gpio_write(PIN, HIGH);
 
-    result = cm2835_close();
+    result = bcm2835_close();
   }
 
   args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
