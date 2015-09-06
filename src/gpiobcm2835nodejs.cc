@@ -29,9 +29,11 @@ int light_led(void){
 
 int getCurrentStateDoor(){
     int result = 0;
-    if (!bcm2835_init())
-            result = -1;
-    else{
+    if (!bcm2835_init()){
+     result = -1;
+    }
+    else
+    {
         bcm2835_gpio_fsel(PIN_OUT, BCM2835_GPIO_FSEL_OUTP);      // Устанавливаем порт PIN_OUT на вывод
         bcm2835_gpio_fsel(PIN_IN, BCM2835_GPIO_FSEL_INPT);       // Устанавливаем порт PIN_IN на ввод
 
@@ -39,15 +41,18 @@ int getCurrentStateDoor(){
 
         bcm2835_gpio_write(PIN_OUT, HIGH);                       // Устанавливаем порт PIN_OUT в состояние "1"
 
-        if(!bcm2835_gpio_lev(PIN_IN))    // Повторяем все действия, заключённые в скобки {} пока не будет нажата кнопка
+        if(!bcm2835_gpio_lev(PIN_IN)){
             result = 1;//дверь открыта
-        else
+        }    // Повторяем все действия, заключённые в скобки {} пока не будет нажата кнопка
+        else{
             result = 0;//дверь закрыта
+        }
+
 
         bcm2835_gpio_set_pud(PIN_IN, 0);   // Отключаем подтяжку порта PIN_IN к "0"
-        bcm2835_close ();
-        }
-    return result
+        bcm2835_close();
+    }
+    return result;
 }
 
 void Method(const FunctionCallbackInfo<Value>& args) {
@@ -67,10 +72,12 @@ void MethodGetCurrentStateDoor(const FunctionCallbackInfo<Value>& args) {
 
   if(result == 1){
     args.GetReturnValue().Set(String::NewFromUtf8(isolate, "Дверь открыта"));
-  }else if(result == 0){
-    args.GetReturnValue().Set(String::NewFromUtf8(isolate, "Дверь закрыта"));
   }else{
-    args.GetReturnValue().Set(String::NewFromUtf8(isolate, "Произошла ошибка"));
+    if(result == 0){
+        args.GetReturnValue().Set(String::NewFromUtf8(isolate, "Дверь закрыта"));
+      }else{
+        args.GetReturnValue().Set(String::NewFromUtf8(isolate, "Произошла ошибка"));
+      }
   }
 }
 
