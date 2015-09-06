@@ -1,5 +1,5 @@
 #include <node.h>
-#include <./gpio_functions.h>
+#include <gpio_functions.h>
 
 using namespace v8;
 
