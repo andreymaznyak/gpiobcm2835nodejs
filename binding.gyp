@@ -14,7 +14,13 @@
                     '-lrt -lbcm2835',
                   ],
                 }],
-              ]
+              ],
+      'include_dirs': [
+        'src/gpio_functions',
+      ],
+      'libraries': [
+        '-lbcm2835'
+      ]
     }
   ]
 }
