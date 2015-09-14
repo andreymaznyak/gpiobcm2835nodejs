@@ -8,7 +8,7 @@
     "url": "git://github.com/andreymaznyak/gpiobcm2835nodejs.git"
   },
   "homepage": "http://github.com/andreymaznyak/gpiobcm2835nodejs",
-  "main": "./lib/gpiobcm2835nodejs.cc",
+  "main": "./build/Release/gpiobcm2835nodejs.node",
   "keywords": [
     "nodejs",
     "gpio",
