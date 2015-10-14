@@ -48,8 +48,6 @@ int getCurrentStateDoor(){
             result = 0;//дверь закрыта
         }
 
-
-        bcm2835_gpio_set_pud(PIN_IN, 0);   // Отключаем подтяжку порта PIN_IN к "0"
         bcm2835_close();
     }
     return result;
